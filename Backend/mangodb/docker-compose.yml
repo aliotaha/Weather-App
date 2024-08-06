@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+
+  mangodbapi:
+    image: aliosmanali/mangodbapi
+    container_name: mangodbapi
+    ports:
+      - "9090:9090"
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongodb
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: mydatabase
