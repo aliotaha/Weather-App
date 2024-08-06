@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mangodbapi:
+    image: aliosmanali/mangodbapi
+    container_name: mangodbapi
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/weatherdb
+
+  weatherapi:
+    image: weatherapi
+    container_name: weatherapi
+    depends_on:
+      - mongodb
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/weatherdb
+      - OPENWEATHERMAP_API_KEY=9538bd6c5dc076097fd70e0c984f253a
+
+volumes:
+  mongo-data:
