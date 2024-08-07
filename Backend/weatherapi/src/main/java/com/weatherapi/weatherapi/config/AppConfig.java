@@ -18,6 +18,3 @@ public class AppConfig {
                 .build();
     }
 }
-//The AppConfig class configures a RestTemplate with specific connection and read timeout settings.
-//It centralizes the creation and configuration of the RestTemplate, ensuring that all HTTP requests made using this RestTemplate adhere to the defined timeout rules.
-//This helps improve the resilience and reliability of the application when interacting with external services.
