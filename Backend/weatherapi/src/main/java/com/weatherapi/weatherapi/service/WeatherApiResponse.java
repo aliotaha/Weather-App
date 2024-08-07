@@ -12,7 +12,7 @@ public class WeatherApiResponse {
     private Sys sys;
     private String name;
 
-    // Getters and Setters
+
 
     public Coord getCoord() {
         return coord;
@@ -74,8 +74,6 @@ public class WeatherApiResponse {
         private double lon;
         private double lat;
 
-        // Getters and Setters
-
         public double getLon() {
             return lon;
         }
@@ -98,8 +96,6 @@ public class WeatherApiResponse {
         private String main;
         private String description;
         private String icon;
-
-        // Getters and Setters
 
         public int getId() {
             return id;
@@ -144,7 +140,6 @@ public class WeatherApiResponse {
         private double sea_level;
         private double grnd_level;
 
-        // Getters and Setters
 
         public double getTemp() {
             return temp;
@@ -216,7 +211,6 @@ public class WeatherApiResponse {
         private double deg;
         private double gust;
 
-        // Getters and Setters
 
         public double getSpeed() {
             return speed;
@@ -246,7 +240,6 @@ public class WeatherApiResponse {
     public static class Clouds {
         private int all;
 
-        // Getters and Setters
 
         public int getAll() {
             return all;
@@ -262,7 +255,6 @@ public class WeatherApiResponse {
         private long sunrise;
         private long sunset;
 
-        // Getters and Setters
 
         public String getCountry() {
             return country;
