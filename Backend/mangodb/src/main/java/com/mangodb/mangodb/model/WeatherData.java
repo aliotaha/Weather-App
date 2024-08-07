@@ -12,12 +12,12 @@ public class WeatherData {
     private double temperature;
     private long timestamp;
 
-    // New fields
+
     private double pressure;
     private double humidity;
     private double windSpeed;
 
-    // Getters and Setters
+
 
     public String getId() {
         return id;
