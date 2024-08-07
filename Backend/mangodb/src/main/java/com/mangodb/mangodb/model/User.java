@@ -13,18 +13,18 @@ public class User {
     private String password;
     private List<String> roles;
 
-    // Default constructor
+
     public User() {
     }
 
-    // Parameterized constructor
+  
     public User(String username, String password, List<String> roles) {
         this.username = username;
         this.password = password;
         this.roles = roles;
     }
 
-    // Getters and setters
+  
     public String getId() {
         return id;
     }
