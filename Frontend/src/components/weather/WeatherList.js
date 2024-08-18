@@ -37,6 +37,10 @@ const WeatherList = () => {
         navigate('/weather/add');
     };
 
+    const handleCharts = () => {
+        navigate('/weather/charts');
+    };
+
     const handleLogout = () => {
         // Clear token and redirect to login page
         localStorage.removeItem('authToken');
@@ -52,6 +56,7 @@ const WeatherList = () => {
                 <h2>Weather Data</h2>
                 <div className="action-buttons">
                     <button onClick={handleCreateNew}>Create New Record</button>
+                    <button onClick={handleCharts}>Charts</button>
                 </div>
                 <table className="weather-table">
                     <thead>
@@ -85,10 +90,7 @@ const WeatherList = () => {
                     </tbody>
                 </table>
             </div>
-            {/* The logout button is positioned at the bottom of the page */}
-            <button className="logout-button" onClick={handleLogout}>
-                Logout
-            </button>
+            <button className="logout-button" onClick={handleLogout}>Logout</button>
         </div>
     );
 };

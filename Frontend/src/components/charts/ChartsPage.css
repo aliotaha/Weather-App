@@ -1,0 +1,32 @@
+/* src/components/charts/ChartsPage.css */
+
+.charts-page-wrapper {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: 80vh;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates a 2x2 grid */
+    gap: 2rem; /* Space between grid items */
+}
+
+.chart-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #343a40;
+}

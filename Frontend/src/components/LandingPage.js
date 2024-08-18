@@ -1,3 +1,4 @@
+/* src/components/LandingPage.js */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css'; // Import a CSS file for styling
