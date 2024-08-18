@@ -1,4 +1,4 @@
-// src/components/charts/ChartsPage.js
+// src/components/charts/ChartsPage.js updates
 import React, { useState, useEffect } from 'react';
 import { fetchWeatherData } from '../../services/weatherService';
 import { Line } from 'react-chartjs-2';
