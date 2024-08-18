@@ -44,7 +44,7 @@ public class WeatherService {
                 weatherData.setCity(response.getName());
                 weatherData.setDescription(response.getWeather().get(0).getDescription());
 
-                // Convert temperature from Kelvin to Celsius
+           
                 double tempCelsius = response.getMain().getTemp() - 273.15;
                 weatherData.setTemperature(tempCelsius);
 

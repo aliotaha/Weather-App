@@ -16,15 +16,15 @@ public class MongoUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Fetch the user from MongoDB using the repository
+    
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
 
-        // Return the UserDetails object required by Spring Security
+    
         return org.springframework.security.core.userdetails.User
                 .withUsername(user.getUsername())
                 .password(user.getPassword())
-                .roles(user.getRoles().toArray(new String[0])) // Ensure roles are provided as a String array
+                .roles(user.getRoles().toArray(new String[0])) 
                 .build();
     }
 }
