@@ -1,5 +1,26 @@
 /* src/components/charts/ChartsPage.css updated */
 
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.toggle-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #343a40;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.toggle-buttons button:hover {
+    background-color: #e2e6ea;
+}
+
 .charts-page-wrapper {
     padding: 2rem;
     background-color: #f8f9fa;
