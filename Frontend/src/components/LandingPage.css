@@ -1,35 +1,41 @@
 /* src/components/LandingPage.css */
+
+/* Container for the landing page */
 .landing-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f9; /* Light gray background color */
 }
 
+/* Style for the main heading */
 h1 {
-    font-size: 36px;
-    margin-bottom: 1.5rem;
-    text-align: center;
+    font-size: 36px; /* Large font size for the heading */
+    margin-bottom: 1.5rem; /* Space below the heading */
+    text-align: center; /* Center-align text */
 }
 
+/* Container for buttons, spaced evenly */
 .button-container {
-    display: flex;
-    gap: 1rem;
+    display: flex; /* Flexbox layout */
+    gap: 1rem; /* Space between buttons */
 }
 
+/* Style for buttons */
 button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 0.75rem 1.5rem; /* Padding inside the button */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #007bff; /* Primary blue background color */
+    color: white; /* White text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
+/* Button hover state */
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
 }
