@@ -1,4 +1,6 @@
-/* src/components/weather/ WeatherList.css */
+/* src/components/weather/WeatherList.css */
+
+/* Wrapper for the weather list page */
 .weather-list-wrapper {
     display: flex;
     flex-direction: column;
@@ -7,126 +9,145 @@
     background-color: #f8f9fa; /* Light background for the page */
 }
 
+/* Container for weather list content */
 .weather-list-container {
     padding: 2rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* White background for the container */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     flex: 1; /* Allow the container to grow and take available space */
     display: flex;
     flex-direction: column;
 }
 
+/* Style for section headings */
 h2 {
     margin-bottom: 1.5rem;
     font-size: 24px;
-    text-align: center;
+    text-align: center; /* Center-align the headings */
 }
 
+/* Style for the weather data table */
 .weather-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+    width: 100%; /* Full width table */
+    border-collapse: collapse; /* Collapse table borders */
+    margin-top: 1rem; /* Space above the table */
 }
 
+/* Table cell padding and border */
 .weather-table th, .weather-table td {
     padding: 0.75rem;
-    border: 1px solid #ddd;
-    text-align: left;
+    border: 1px solid #ddd; /* Light border for table cells */
+    text-align: left; /* Left-align text in table cells */
 }
 
+/* Style for table header cells */
 .weather-table th {
-    background-color: #007bff;
-    color: white;
+    background-color: #007bff; /* Blue background for header */
+    color: white; /* White text for header */
 }
 
+/* Alternate row color for better readability */
 .weather-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/* Hover effect for table rows */
 .weather-table tr:hover {
     background-color: #f1f1f1;
 }
 
+/* Style for error messages */
 .error-message {
-    color: red;
+    color: red; /* Red color for errors */
     font-size: 14px;
-    text-align: center;
+    text-align: center; /* Center-align error messages */
 }
 
+/* Container for action buttons */
 .action-buttons {
     margin-bottom: 1rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Align buttons to the end of the container */
 }
 
+/* Margin for action buttons */
 .action-buttons button {
     margin-left: 0.5rem;
 }
 
+/* Style for edit button */
 .edit-button {
     display: inline-block;
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
+    border-radius: 4px; /* Rounded corners */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
     font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
 }
 
+/* Hover effect for edit button */
 .edit-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly scale up */
 }
 
+/* Active state for edit button */
 .edit-button:active {
-    background-color: #003d7a;
+    background-color: #003d7a; /* Even darker blue when pressed */
 }
 
+/* Style for delete button */
 .delete-button {
     display: inline-block;
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 4px;
-    background-color: #dc3545;
-    color: white;
+    border-radius: 4px; /* Rounded corners */
+    background-color: #dc3545; /* Red background */
+    color: white; /* White text */
     font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
 }
 
+/* Hover effect for delete button */
 .delete-button:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
+    background-color: #c82333; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly scale up */
 }
 
+/* Active state for delete button */
 .delete-button:active {
-    background-color: #a71d2a;
+    background-color: #a71d2a; /* Even darker red when pressed */
 }
 
+/* Style for logout button */
 .logout-button {
     width: 50px;
     height: 50px;
     border: none;
-    border-radius: 8px;
-    background-color: #dc3545;
-    color: white;
+    border-radius: 8px; /* Rounded corners */
+    background-color: #dc3545; /* Red background */
+    color: white; /* White text */
     font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center the text inside the button */
     margin-top: auto; /* Pushes the button to the bottom of the flex container */
 }
 
+/* Hover effect for logout button */
 .logout-button:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
+    background-color: #c82333; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly scale up */
 }
 
+/* Active state for logout button */
 .logout-button:active {
-    background-color: #a71d2a;
+    background-color: #a71d2a; /* Even darker red when pressed */
 }
