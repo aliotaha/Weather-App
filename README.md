@@ -97,3 +97,57 @@ The Weather App Frontend is a React-based single-page application (SPA) that pro
 - **Private Routes:** Routes requiring authentication are protected by checking for a valid JWT token in local storage.
 
 
+
+```yaml
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: weatherdata
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  mangodbapi:
+    image: aliosmanali/mangodbapi
+    container_name: mangodbapi
+    depends_on:
+      - mongodb
+    ports:
+      - "9090:9090"
+    networks:
+      - app-network
+
+  weatherapi:
+    image: aliosmanali/weatherapi
+    container_name: weatherapi
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  frontend:
+    image: aliosmanali/frontend
+    container_name: frontend
+    ports:
+      - "3000:80" 
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge
+```
+
+
