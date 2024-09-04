@@ -13,6 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * REST controller for authentication-related operations.
+ * Provides endpoints for user login, registration, and exception handling.
+ */
 @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 @RestController
 @RequestMapping("/auth")
@@ -26,6 +30,12 @@ public class AuthController {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
+    /**
+     * Handles user login requests.
+     * Authenticates the user and returns a JWT token upon successful authentication.
+     * @param authModel The authentication model containing username and password.
+     * @return ResponseEntity containing the authentication model with JWT token or an unauthorized status.
+     */
     @PostMapping("/login")
     public ResponseEntity<AuthenticationModel> login(@RequestBody AuthenticationModel authModel) {
         try {
@@ -43,17 +53,33 @@ public class AuthController {
         }
     }
 
+    /**
+     * Handles user registration requests.
+     * Registers a new user with the provided registration details.
+     * @param registrationModel The registration model containing user details.
+     * @return ResponseEntity indicating successful registration or an error message.
+     */
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegistrationModel registrationModel) {
         userService.registerUser(registrationModel);
         return new ResponseEntity<>("User registered successfully", HttpStatus.CREATED);
     }
 
+    /**
+     * Handles exceptions for user already exists scenario.
+     * @param ex The exception thrown when a user already exists.
+     * @return ResponseEntity with error message and bad request status.
+     */
     @ExceptionHandler(UserAlreadyExistsException.class)
     public ResponseEntity<String> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Handles exceptions for invalid credentials.
+     * @param ex The exception thrown when credentials are invalid.
+     * @return ResponseEntity with error message and unauthorized status.
+     */
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<String> handleBadCredentialsException(BadCredentialsException ex) {
         return new ResponseEntity<>("Credentials Invalid", HttpStatus.UNAUTHORIZED);
