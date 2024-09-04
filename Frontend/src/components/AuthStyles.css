@@ -1,106 +1,122 @@
 /* src/components/AuthStyle.css */
+
+/* Container to center the form in the viewport */
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0; /* Light grey background for the container */
 }
 
+/* Style for the form container */
 .form-container {
-    width: 300px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Fixed width for the form */
+    padding: 20px; /* Padding inside the form */
+    background: white; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Style for form groups (e.g., input fields and labels) */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Space between form groups */
 }
 
+/* Style for labels */
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    display: block; /* Block display to ensure labels are on separate lines */
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Bold text for labels */
 }
 
+/* Style for input fields */
 input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: 100%; /* Full width of the form container */
+    padding: 8px; /* Padding inside the input fields */
+    border: 1px solid #ddd; /* Light border color */
+    border-radius: 4px; /* Rounded corners */
 }
 
+/* Style for buttons */
 button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    width: 100%; /* Full width of the form container */
+    padding: 10px; /* Padding inside the button */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+    font-size: 16px; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
+/* Button hover effect */
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue background on hover */
 }
 
+/* Style for error messages */
 .error-message {
-    color: red;
-    font-size: 14px;
-    text-align: center;
+    color: red; /* Red text color for errors */
+    font-size: 14px; /* Font size for error messages */
+    text-align: center; /* Center the text */
 }
 
+/* Style for paragraphs */
 p {
-    text-align: center;
-    font-size: 16px;
+    text-align: center; /* Center text alignment */
+    font-size: 16px; /* Font size for paragraphs */
 }
 
 /* Logout button styling */
 .logout-button {
-    padding: 0.25rem 0.5rem; /* Smaller padding */
-    border: none;
-    border-radius: 4px;
-    background-color: #dc3545;
-    color: white;
+    padding: 0.25rem 0.5rem; /* Smaller padding for the logout button */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #dc3545; /* Red background color */
+    color: white; /* White text color */
     font-size: 12px; /* Smaller font size */
-    cursor: pointer;
-    transition: background-color 0.3s;
-    position: fixed; /* Fixed position */
-    top: 10px;
-    right: 10px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+    position: fixed; /* Fixed position to stay in the corner */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
 }
 
+/* Logout button hover effect */
 .logout-button:hover {
-    background-color: #c82333;
+    background-color: #c82333; /* Darker red background on hover */
 }
 
+/* Header style */
 .header {
-    background-color: #007bff;
-    padding: 1rem;
-    color: white;
+    background-color: #007bff; /* Blue background for the header */
+    padding: 1rem; /* Padding inside the header */
+    color: white; /* White text color */
 }
 
+/* Navigation style inside the header */
 .header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+    list-style: none; /* Remove list bullets */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Flexbox layout for navigation items */
+    justify-content: center; /* Center navigation items */
 }
 
+/* Style for navigation list items */
 .header nav ul li {
-    margin: 0 1rem;
+    margin: 0 1rem; /* Space between navigation items */
 }
 
+/* Style for navigation links */
 .header nav ul li a {
-    color: white;
-    text-decoration: none;
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from links */
 }
 
+/* Navigation link hover effect */
 .header nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Underline links on hover */
 }
