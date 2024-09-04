@@ -1,13 +1,14 @@
-// src/components/weather/ WeatherForm.js
+// src/components/weather/WeatherForm.js
+
 import React, { useState, useEffect } from 'react';
 import { addWeatherData, updateWeatherData, getWeatherDataById } from '../../services/weatherService';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const WeatherForm = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
+    const { id } = useParams(); // Get the ID from URL params for update operations
+    const navigate = useNavigate(); // Hook to navigate programmatically
 
-    // State for weather data
+    // State variables to hold form data
     const [city, setCity] = useState('');
     const [description, setDescription] = useState('');
     const [temperature, setTemperature] = useState('');
@@ -15,13 +16,14 @@ const WeatherForm = () => {
     const [humidity, setHumidity] = useState('');
     const [windSpeed, setWindSpeed] = useState('');
     const [timestamp, setTimestamp] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState(''); // State for error messages
 
     useEffect(() => {
         if (id) {
+            // Fetch existing weather data for update operation
             const fetchWeatherData = async () => {
                 try {
-                    const data = await getWeatherDataById(id);
+                    const data = await getWeatherDataById(id); // Fetch data by ID
                     setCity(data.city || '');
                     setDescription(data.description || '');
                     setTemperature(data.temperature || '');
@@ -34,19 +36,21 @@ const WeatherForm = () => {
                     const localDateString = localDate.toISOString().slice(0, 16);
                     setTimestamp(localDateString);
                 } catch (error) {
-                    setError('Failed to fetch weather data');
+                    setError('Failed to fetch weather data'); // Set error if fetching fails
                 }
             };
             fetchWeatherData();
         }
     }, [id]);
 
+    // Handle form submission
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default form submission behavior
         // Convert local datetime string to UTC timestamp in milliseconds
         const localDate = new Date(timestamp);
         const utcTimestamp = localDate.getTime();
-        
+
+        // Create a weather data object
         const weatherData = {
             city,
             description,
@@ -56,21 +60,23 @@ const WeatherForm = () => {
             windSpeed: parseFloat(windSpeed),
             timestamp: utcTimestamp // Send UTC timestamp to the server
         };
+
         try {
             if (id) {
-                await updateWeatherData(id, weatherData);
+                await updateWeatherData(id, weatherData); // Update existing data
             } else {
-                await addWeatherData(weatherData);
+                await addWeatherData(weatherData); // Add new data
             }
             navigate('/weather'); // Redirect after saving
         } catch (error) {
-            setError('Failed to save weather data');
+            setError('Failed to save weather data'); // Set error if saving fails
         }
     };
 
     return (
         <div>
             <h2>{id ? 'Update' : 'Add'} Weather Data</h2>
+            {/* Form for adding or updating weather data */}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>City</label>
@@ -137,7 +143,7 @@ const WeatherForm = () => {
                 </div>
                 <button type="submit">{id ? 'Update' : 'Add'} Weather Data</button>
             </form>
-            {error && <p>{error}</p>}
+            {error && <p>{error}</p>} {/* Display error message if present */}
         </div>
     );
 };
