@@ -19,6 +19,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * Custom filter to validate JWT tokens and set the authentication in the security context.
+ * This filter is executed once per request to ensure that the JWT token is valid and the user is authenticated.
+ */
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -33,17 +37,28 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         this.userDetailsService = userDetailsService;
     }
 
+    /**
+     * Processes the JWT token from the request header and sets the authentication in the security context if valid.
+     *
+     * @param request The HTTP request containing the JWT token.
+     * @param response The HTTP response to send to the client.
+     * @param filterChain The filter chain to continue the request processing.
+     * @throws ServletException If an error occurs during filter processing.
+     * @throws IOException If an input or output exception occurs.
+     */
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-  
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) 
+            throws ServletException, IOException {
+
         String requestHeader = request.getHeader("Authorization");
         String username = null;
         String token = null;
 
+        // Check if the Authorization header is present and starts with "Bearer "
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
-         
-            token = requestHeader.substring(7);
+            token = requestHeader.substring(7); // Extract the token from the header
             try {
+                // Extract username from the JWT token
                 username = this.jwtHelper.getUsernameFromToken(token);
             } catch (IllegalArgumentException e) {
                 logger.error("Illegal Argument while fetching the username", e);
@@ -58,13 +73,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             logger.warn("Invalid Authorization Header Value");
         }
 
+        // If username is not null and no authentication is set in the security context
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-          
+            // Load user details using the username
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+            // Validate the token
             boolean validateToken = this.jwtHelper.validateToken(token, userDetails);
             if (validateToken) {
-               
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                // If token is valid, set the authentication in the security context
+                UsernamePasswordAuthenticationToken authentication = 
+                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             } else {
@@ -72,6 +90,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         }
 
+        // Continue with the filter chain
         filterChain.doFilter(request, response);
     }
 }
