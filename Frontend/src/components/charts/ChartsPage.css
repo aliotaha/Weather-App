@@ -1,53 +1,61 @@
-/* src/components/charts/ChartsPage.css updated */
+/* src/components/charts/ChartsPage.css */
 
+/* Styles for the toggle buttons used to switch between chart views or types */
 .toggle-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+    display: flex; /* Aligns buttons in a row */
+    justify-content: center; /* Centers buttons horizontally within the container */
+    margin-bottom: 1rem; /* Adds space below the buttons */
 }
 
+/* Styles for individual toggle buttons */
 .toggle-buttons button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #343a40;
-    background-color: #f8f9fa;
-    color: #343a40;
+    margin: 0 10px; /* Adds horizontal space between buttons */
+    padding: 10px 20px; /* Adds padding inside the buttons */
+    font-size: 1rem; /* Sets the font size */
+    cursor: pointer; /* Changes cursor to pointer to indicate a clickable element */
+    border-radius: 5px; /* Rounds the corners of the buttons */
+    border: 1px solid #343a40; /* Sets the border color and width */
+    background-color: #f8f9fa; /* Sets the background color of the buttons */
+    color: #343a40; /* Sets the text color */
 }
 
+/* Styles for the toggle buttons when hovered */
 .toggle-buttons button:hover {
-    background-color: #e2e6ea;
+    background-color: #e2e6ea; /* Changes the background color on hover */
 }
 
+/* Wrapper for the charts page */
 .charts-page-wrapper {
-    padding: 2rem;
-    background-color: #f8f9fa;
-    min-height: 80vh;
+    padding: 2rem; /* Adds padding around the content */
+    background-color: #f8f9fa; /* Sets the background color */
+    min-height: 80vh; /* Ensures the wrapper takes up at least 80% of the viewport height */
 }
 
+/* Styles for the main heading on the charts page */
 h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
+    font-size: 2rem; /* Sets the font size */
+    margin-bottom: 1rem; /* Adds space below the heading */
+    text-align: center; /* Centers the heading text */
 }
 
+/* Container for the grid layout of charts */
 .charts-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Creates a 2x2 grid */
-    gap: 2rem; /* Space between grid items */
+    display: grid; /* Uses grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Creates a grid with 2 equal columns */
+    gap: 2rem; /* Adds space between grid items */
 }
 
+/* Styles for each chart item */
 .chart-item {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Sets the background color */
+    border-radius: 8px; /* Rounds the corners */
+    padding: 1rem; /* Adds padding inside the item */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
 }
 
+/* Styles for subheadings within chart items */
 h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #343a40;
+    font-size: 1.5rem; /* Sets the font size */
+    margin-bottom: 1rem; /* Adds space below the subheading */
+    color: #343a40; /* Sets the text color */
 }
